@@ -1,0 +1,11 @@
+@ECHO OFF
+COLOR 0A
+
+MKDIR ".\BACKUP"
+COPY %1 ".\BACKUP\%~nx1"
+IF NOT "%ERRORLEVEL%" == "0" PAUSE
+
+python x10.py %1 %1 10 template.pdf
+IF NOT "%ERRORLEVEL%" == "0" PAUSE
+
+EXIT
