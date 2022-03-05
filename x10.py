@@ -1,10 +1,11 @@
 import PyPDF2
 import sys
+from pathlib import Path
 
 filename_in = sys.argv[1]
-filename_out = sys.argv[2]
-pages = int(sys.argv[3])
-template = sys.argv[4] if len(sys.argv) >= 5 else None
+filename_out = filename_in
+pages = int(Path(__file__).stem.replace("x",""))
+template = sys.argv[2] if len(sys.argv) >= 5 else None
 
 pdf_reader = PyPDF2.PdfFileReader(filename_in)
 pdf_writer = PyPDF2.PdfFileWriter()
